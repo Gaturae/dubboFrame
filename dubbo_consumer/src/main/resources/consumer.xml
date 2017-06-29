@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xsi:schemaLocation="http://www.springframework.org/schema/beans           http://www.springframework.org/schema/beans/spring-beans.xsd           http://code.alibabatech.com/schema/dubbo           http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">   
+    <!-- 消费方应用名 -->  
+    <dubbo:application name="dubbo_consumer" />        
+    <!-- 填写zk注册中心的地址 -->  
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />       
+    <!-- 引用服务提供接口的路径 -->  
+    <dubbo:reference interface="com.zqcheng.service.TestService" id="test" />   
+</beans>
+<!-- <?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xsi:schemaLocation="http://www.springframework.org/schema/beans           http://www.springframework.org/schema/beans/spring-beans.xsd           http://code.alibabatech.com/schema/dubbo           http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">  
+  消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样  
+  <dubbo:application name="consumer"/>  
+  使用zookeeper广播注册中心暴露发现服务地址  
+  <dubbo:registry protocol="zookeeper" address="zookeeper://127.0.0.1:2181"/>  
+  生成远程服务代理，可以和本地bean一样使用testService  
+  <dubbo:reference id="test" interface="com.zqcheng.service.TestService" />
+</beans> -->
